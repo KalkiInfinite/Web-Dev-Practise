@@ -1,0 +1,97 @@
+*{
+    text-decoration: none;
+}
+.navbar{
+    background: crimson;
+    font-family: calibri;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo a{
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+li a{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+button{
+    background-color: black;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 90px;
+    border: none;
+}
+button:hover{
+    background-color: rgb(27, 25, 25);
+}
+button a{
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+/* Add Pizza Form Section */
+.add-pizza {
+    max-width: 500px;
+    margin: 35px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.add-pizza h2 {
+    text-align: center;
+    margin-bottom: 20px;                        
+    color: #f44336;
+}
+
+.add-pizza form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-pizza label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.add-pizza input[type="text"],
+.add-pizza input[type="number"],
+.add-pizza select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-pizza button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #ff6347;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-pizza button:hover {
+    background-color: #e55340;
+}

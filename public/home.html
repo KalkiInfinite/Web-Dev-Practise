@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo"><a href="#">PizzaHut</a> </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Contact</a></li>
+                <button><a href="#">LogOut</a></button>
+            </ul>
+        </div>
+    </nav>
+    <section class="add-pizza">
+        <h2>Add Pizza to Menu</h2>
+        <form action="/addPizza" method="POST">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="name">Pizza Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+                <option value="Vegan">Vegan</option>
+            </select>
+
+            <label for="size">Size:</label>
+            <select id="size" name="size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+
+            <label for="cost">Cost:</label>
+            <input type="number" id="cost" name="cost" required>
+
+            <button type="submit">Add Pizza</button>
+        </form>
+    </section>
+    <section class="order-list">
+        <h2>All Orders</h2>
+        <table id="ordersTable" bgcolor="black" width="1250">
+            <thead>
+                <tr bgcolor="grey">
+                    <th>Your Name</th>
+                    <th>Pizza</th>
+                    <th>Category</th>
+                    <th>Size</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody id="ordersTableBody" bgcolor="grey">
+                <!-- Orders will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+    <script>
+        async function loadOrders() {
+            const response = await fetch("/getOrders");
+            const orders = await response.json();
+
+            const tableBody = document.getElementById("ordersTableBody");
+            tableBody.innerHTML = "";
+
+            orders.forEach(order => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                        <td>${order.username}</td>
+                        <td>${order.name}</td>
+                        <td>${order.category}</td>
+                        <td>${order.size}</td>
+                        <td>${order.cost}</td>
+                        <td><a href="/delete/${order._id}">delete</a></td>
+                    `;
+                tableBody.appendChild(row);
+            });
+        }
+        window.onload = loadOrders;
+    </script>
+</body>
+</html>
