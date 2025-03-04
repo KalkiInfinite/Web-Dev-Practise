@@ -4,7 +4,7 @@ Welcome to the **Web Dev Practise** repository! This repository is a collection 
 
 ---
 
-## 🛠️ Project Overview
+## 🛠️ Project Overview - 
 
 This repository includes a variety of projects and examples, covering concepts such as:
 - HTML/CSS Basics
